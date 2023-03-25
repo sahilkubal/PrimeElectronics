@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container-flex" *ngIf="cartProducts.length!=0">
+    <div class="row">
+        <div class="col-lg-12 d-flex justify-content-evenly">
+            <div class="board">
+                <table class="table align-middle">
+                    <tbody class="table-group-divider" *ngFor="let pro of cartProducts">
+                        <tr class="mb-2">
+                            <td><img [src]="pro.image" height="60px" weight="60px" alt=""></td>
+                            <td>
+                                <h6>{{pro.name}}</h6>
+                            </td>
+                            <td>
+                                <h6>{{pro.quantity}}</h6>
+                            </td>
+                            <td>
+                                <h6>{{pro.price|currency:"INR"}}</h6>
+                            </td>
+                            <td><button class="btn rmv" (click)="removeCartItem(pro)">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-flex" *ngIf="cartProducts.length==0">
+    <div class="row">
+        <div class="col-lg-12 d-flex justify-content-evenly">
+            <div class="board">
+                <div class="center">
+                    <img src="/assets/images/emptyCart.jpg" alt="">
+                    <h4>Your cart is empty!</h4>
+                    <h6>Add item to it</h6>
+                    <button class="btn btn-primary" [routerLink]="['/products']">Shop now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

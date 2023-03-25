@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="/assets/images/login.jpg" alt="login">
+        </div>
+        <div class="col-lg-6">
+            <div class="board">
+                <div class="head">
+                    <h2>Login</h2>
+                    <p>Welcome back again!</p>
+                </div>
+                <div class="acc-link">
+                    <img src="/assets/images/google.png" alt="">
+                    <a href="#">Sign in with Google</a>
+                </div>
+                <form action="">
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="mail@website.com">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="password">
+                        <input type="submit" value="Sign in">
+                </form>
+                <p>Not registered yet? <a [routerLink]="['/register']">Create an Account</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

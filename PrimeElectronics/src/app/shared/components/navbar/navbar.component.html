@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg transparancy navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand ms-5" [routerLink]="['/home']">PrimeElectronics</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mt-2 d-flex justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-3">
+                    <a class="nav-link" aria-current="page" [routerLink]="['/home']">Home</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" [routerLink]="['/products']">Products</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" [routerLink]="['/login']">Profile</a>
+                </li>
+                <li class="nav-item mx-4">
+                    <a class="nav-link mt-0 position-relative" [routerLink]="['/cart']">
+                    <!-- <button type="button" class="btn btn-primary position-relative"> -->
+                        <i class="bi bi-cart-fill text-light fs-6"></i>Cart
+                        <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-primary">
+                            {{totalItem}}
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    <!-- </button> -->
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

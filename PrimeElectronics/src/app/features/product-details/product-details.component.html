@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="row my-4 d-flex justify-content-center">
+    <div class="col-lg-4 p-4 overflow-hidden border border-dark-subtle">
+        <img [src]="product.image" height="400px" width="500px" alt="">
+    </div>
+    <div class="col-lg-7">
+        <table>
+            <tr class="">
+                <!-- <td class="border px-3 py-1"><h6>Name</h6></td> -->
+                <td colspan="2" class="border border-light-subtle px-3 py-1"><h5>{{product.name}}</h5></td>
+            </tr>
+            <tr>
+                <td class="border border-light-subtle px-3 d-flex aligh-item-start"><h6>Description</h6></td>
+                <td class="border border-light-subtle px-3 py-1 fst-italic"><p>{{product.description}}</p></td>
+            </tr>
+            <tr>
+                <td class="border border-light-subtle px-3 py-1"><h6>Price</h6></td>
+                <td class="border border-light-subtle px-3 py-1">
+                    <h5>{{product.price|currency:"INR"}}</h5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="btn btn-warning" (click)="addToCart(product)">Add to Cart</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/cart']" class="btn btn-warning">Buy Now</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<app-footer></app-footer>

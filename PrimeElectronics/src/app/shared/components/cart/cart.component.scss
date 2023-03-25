@@ -1,0 +1,35 @@
+.board{
+    margin: 5% 7%;
+    height: 60vh;
+    width: 85%;
+    overflow: scroll;
+    border: 1px solid rgb(112, 112, 112);
+    box-shadow: 3px 3px 5px rgb(78, 78, 78);
+}
+
+.rmv{
+    background-color: rgb(104, 104, 104);
+    color: rgb(255, 255, 255);
+}
+
+.rmv:hover{
+    background-color: rgb(255, 72, 0);
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.center>img{
+    height: 18%;
+    width: 22%;
+}
+
+h4,h6{
+    font-weight: 400;
+    color: rgb(75, 75, 75);
+}
