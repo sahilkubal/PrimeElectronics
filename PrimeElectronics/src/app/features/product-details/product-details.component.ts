@@ -34,7 +34,6 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   addToCart(product: any) {
-    // this.product_service.add_to_cart(product)
     this.cart_service.add_To_Cart(product)
   }
 }

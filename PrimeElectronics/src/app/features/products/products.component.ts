@@ -25,11 +25,6 @@ export class ProductsComponent implements OnInit {
       })
     })
 
-    // if (this.products.length % 8 != 0) {
-    //   this.page_number = Math.ceil(this.products.length / this.per_page)
-    // } else {
-    //   this.page_number = Math.floor(this.products.length / this.per_page)
-    // }
   }
 
   filteredDevices = this.products
@@ -43,12 +38,18 @@ export class ProductsComponent implements OnInit {
   set d_category(category: string) {
     this.device_category = category
     this.filteredDevices = this.products.filter(data => data.category.toLowerCase().includes(category.toLowerCase()))
+    
+    if (this.filteredDevices.length % 8 != 0) {
+      this.page_number = Math.ceil(this.filteredDevices.length / this.per_page)
+    } else {
+      this.page_number = Math.floor(this.filteredDevices.length / this.per_page)
+    }
   }
 
   per_page = 8
   start = 0
   end = 8
-  page_number = 1
+  page_number = Math.ceil(this.filteredDevices.length/this.per_page)
 
   // counter to create array of numbers for pagination
   counter(i: number) {
@@ -61,7 +62,6 @@ export class ProductsComponent implements OnInit {
   }
 
   addToCart(product: any) {
-    // this.product_service.add_to_cart(product)
     this.cart_service.add_To_Cart(product)
   }
 }

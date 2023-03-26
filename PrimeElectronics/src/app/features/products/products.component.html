@@ -45,8 +45,8 @@
     <nav class="d-flex justify-content-center">
         <ul class="pagination pagination-sm">
             <!-- index local variable provides index for the current element while iteration -->
-            <li class="page-item" *ngFor="let in of counter(per_page); let i=index">
-                <a class="page-link">{{i+1}}</a>
+            <li class="page-item" *ngFor="let in of counter(page_number); let i=index">
+                <a class="page-link" (click)="change_page(i+1)">{{i+1}}</a>
             </li>
         </ul>
     </nav>
