@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg transparancy navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand ms-5" [routerLink]="['/home']">PrimeElectronics</a>
+        <img src="/assets/images/logo.png" class="logo ms-5" alt="">
+        <a class="navbar-brand ms-2" [routerLink]="['/home']">PrimeElectronics</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,7 +21,7 @@
                     <a class="nav-link mt-0 position-relative" [routerLink]="['/cart']">
                     <!-- <button type="button" class="btn btn-primary position-relative"> -->
                         <i class="bi bi-cart-fill text-light fs-6"></i>Cart
-                        <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-primary">
+                        <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-warning">
                             {{totalItem}}
                             <span class="visually-hidden">unread messages</span>
                         </span>

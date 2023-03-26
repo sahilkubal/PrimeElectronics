@@ -18,10 +18,4 @@ export class BannersComponent implements OnInit{
   ngOnInit(): void {
     this.product_service.getProducts().subscribe(data => this.products = data)
   }
-
-  // mobileDevices:ProductInterface[] = []
-  // mobileDeviceFunc() {
-
-  // }
-
 }

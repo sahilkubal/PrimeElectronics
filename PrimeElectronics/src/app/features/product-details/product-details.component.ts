@@ -19,14 +19,18 @@ export class ProductDetailsComponent implements OnInit{
   ){}
 
   id:number = 1
-  product!: ProductInterface
+  product!: any
 
   ngOnInit(): void {
     this.id = +this.activated_route.snapshot.paramMap.get("id")!
     this.product_service.getProductByID(this.id).subscribe(
-      prod => {this.product = prod},
-      err => {this.router.navigate(['/products'])}
-    )
+      prod => {
+        this.product = prod;
+        this.product.push({quantity:1,total:prod.price})
+        },
+      err => {
+        this.router.navigate(['/products'])
+      })
   }
 
   addToCart(product: any) {

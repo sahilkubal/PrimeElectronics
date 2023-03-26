@@ -1,18 +1,30 @@
 <app-navbar></app-navbar>
-
-<div>
-    <nav class="d-flex justify-content-center">
-        <ul class="pagination pagination-sm">
-            <!-- index local variable provides index for the current element while iteration -->
-            <li class="page-item" *ngFor="let in of counter(per_page); let i=index">
-                <a class="page-link" (click)="change_page(i+1)">{{i+1}}</a>
-            </li>
-        </ul>
-    </nav>
+<div class="pt-4 pb-4 c d-flex justify-content-center">
+    <div class="input-group border-dark input-group-sm mb-3 w-75">
+        <span class="text-middle tc pt-1 pe-2 fw-medium">Search</span>
+        <input type="search" class="form-control" placeholder="e.g. mobile, computer, home appliances, wearables etc" [(ngModel)]="d_category">
+    </div>
 </div>
 
-<div class="row mt-4 mx-3 d-flex justify-content-evenly">
-    <div class="col-lg-3 col-md-6 col-sm-12 mb-4" *ngFor="let prod of products|slice:start:end">
+<div class="row mt-4 mx-3 d-flex justify-content-evenly" *ngIf="filteredDevices.length!=0">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-4" *ngFor="let prod of filteredDevices| slice:start:end">
+        <div class="card border-dark-subtle" style="width: 18rem;">
+            <img [src]="prod.image" class="card-img-top img-fluid" alt="...">
+            <hr>
+            <div class="card-body">
+                <h5 class="card-title">{{prod.name|slice:0:20}}</h5>
+                <hr>
+                <p class="card-text">{{prod.description|slice:0:80}}...</p>
+                <hr>&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-warning" (click)="addToCart(prod)">Add To Cart</a>
+                &nbsp;&nbsp;&nbsp;
+                <a [routerLink]="['/products-details', prod.id]" class="btn btn-warning">See details</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4 mx-3 d-flex justify-content-evenly" *ngIf="filteredDevices.length==0">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-4" *ngFor="let prod of products| slice:start:end">
         <div class="card border-dark-subtle" style="width: 18rem;">
             <img [src]="prod.image" class="card-img-top img-fluid" alt="...">
             <hr>
@@ -29,6 +41,15 @@
     </div>
 </div>
 
-
+<div>
+    <nav class="d-flex justify-content-center">
+        <ul class="pagination pagination-sm">
+            <!-- index local variable provides index for the current element while iteration -->
+            <li class="page-item" *ngFor="let in of counter(per_page); let i=index">
+                <a class="page-link">{{i+1}}</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 
 <app-footer></app-footer>

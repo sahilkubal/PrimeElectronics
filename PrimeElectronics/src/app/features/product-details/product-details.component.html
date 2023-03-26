@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="row my-4 d-flex justify-content-center">
-    <div class="col-lg-4 p-4 overflow-hidden border border-dark-subtle">
-        <img [src]="product.image" height="400px" width="500px" alt="">
+    <div class="col-lg-4 box overflow-hidden border border-dark-subtle">
+        <img [src]="product.image" class="pe-2" alt="">
     </div>
     <div class="col-lg-7">
         <table>
@@ -24,7 +24,7 @@
                     <a class="btn btn-warning" (click)="addToCart(product)">Add to Cart</a>
                 </td>
                 <td>
-                    <a [routerLink]="['/cart']" class="btn btn-warning">Buy Now</a>
+                    <a [routerLink]="['page-is-in-development-phase']" class="btn btn-warning">Buy Now</a>
                 </td>
             </tr>
         </table>

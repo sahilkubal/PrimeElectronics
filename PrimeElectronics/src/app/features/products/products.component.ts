@@ -19,28 +19,39 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.product_service.getProducts().subscribe(data => {
-      this.products = data
+      this.products = data;
       this.products.forEach((p: any) => {
         Object.assign(p,{quantity:1,total:p.price})
       })
     })
 
-    if (this.products.length % 8 != 0) {
-      this.page_number = Math.ceil(this.products.length / this.per_page)
-    } else {
-      this.page_number = Math.floor(this.products.length / this.per_page)
-    }
+    // if (this.products.length % 8 != 0) {
+    //   this.page_number = Math.ceil(this.products.length / this.per_page)
+    // } else {
+    //   this.page_number = Math.floor(this.products.length / this.per_page)
+    // }
   }
 
-  filteredProducts = this.products
+  filteredDevices = this.products
+
+  device_category = ''
+
+  get d_category(){
+    return this.device_category
+  }
+
+  set d_category(category: string) {
+    this.device_category = category
+    this.filteredDevices = this.products.filter(data => data.category.toLowerCase().includes(category.toLowerCase()))
+  }
+
   per_page = 8
   start = 0
   end = 8
-  page_number = 0
+  page_number = 1
 
   // counter to create array of numbers for pagination
-  counter(i: number):any {
-    console.log(i);
+  counter(i: number) {
     return new Array(i);
   }
 

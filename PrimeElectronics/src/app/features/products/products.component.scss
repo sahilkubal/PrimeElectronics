@@ -3,6 +3,23 @@
     text-decoration: none;
 }
 
+.c{
+    background-color: #e9e9e9; 
+    box-shadow: 0px 20px 10px -15px #55555594;        
+}
+
+.tc{
+    color: #073e97;
+}
+
+input[type="search"]{
+    border: 2px solid #2875f059;
+}
+
+input[type="search"]::placeholder{
+    color: rgba(102, 102, 102, 0.644);
+}
+
 p{
     font-size: 15px;
     font-weight: 400;
