@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CartService } from './services/cart.service';
+import { UserService } from './services/user.service';
 
 
 
@@ -21,7 +22,7 @@ import { CartService } from './services/cart.service';
     RouterModule,
     HttpClientModule
   ],
-  providers: [ProductService, CartService],
+  providers: [ProductService, CartService, UserService],
   exports: [
     NavbarComponent,
     FooterComponent,

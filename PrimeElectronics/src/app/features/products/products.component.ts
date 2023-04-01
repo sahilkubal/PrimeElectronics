@@ -17,6 +17,13 @@ export class ProductsComponent implements OnInit {
 
   products: ProductInterface[] = []
 
+  filteredDevices = this.products
+  per_page = 8
+  start = 0
+  end = 8
+
+  page_number = Math.ceil(this.filteredDevices.length/this.per_page)
+
   ngOnInit(): void {
     this.product_service.getProducts().subscribe(data => {
       this.products = data;
@@ -24,10 +31,7 @@ export class ProductsComponent implements OnInit {
         Object.assign(p,{quantity:1,total:p.price})
       })
     })
-
   }
-
-  filteredDevices = this.products
 
   device_category = ''
 
@@ -45,11 +49,6 @@ export class ProductsComponent implements OnInit {
       this.page_number = Math.floor(this.filteredDevices.length / this.per_page)
     }
   }
-
-  per_page = 8
-  start = 0
-  end = 8
-  page_number = Math.ceil(this.filteredDevices.length/this.per_page)
 
   // counter to create array of numbers for pagination
   counter(i: number) {

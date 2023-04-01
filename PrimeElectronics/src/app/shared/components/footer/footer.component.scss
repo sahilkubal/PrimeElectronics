@@ -27,10 +27,24 @@ a:hover{
 
 hr {
     margin: auto;
+    padding: .1%;
     background-color: #fff;
 }
 
-.social-links>i{
-    font-size: 30px;
+.social-links{
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
     color: #dadada;
+}
+
+.social-links>h6{
+    padding-bottom: 1%;
+}
+
+ul>li{
+    padding-top: 2%;
+    list-style: none;
+    display: inline-flex;
+    flex-direction: row;
 }

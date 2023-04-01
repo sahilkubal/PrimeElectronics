@@ -14,11 +14,20 @@
                     <img src="/assets/images/google.png" alt="">
                     <a href="#">Sign in with Google</a>
                 </div>
-                <form action="">
+                <form [formGroup]="LoginForm" (ngSubmit)="login()">
                         <label for="email">Email</label>
-                        <input type="email" placeholder="mail@website.com">
+                        <input type="email" name="email" placeholder="mail@website.com" formControlName="email">
+                        <div class="text-danger" *ngIf="email.dirty && email.invalid">
+                            <h6 *ngIf="email.errors!['required']">Email address is required</h6>
+                            <h6 *ngIf="email.errors!['email']">Invalid email! e.g. sahilkubal@mail.com</h6>
+                        </div>
+
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="password">
+                        <input type="password" name="password" id="password" placeholder="password" formControlName="password">
+                        <div class="text-danger" *ngIf="password.dirty && password.invalid">
+                            <h6 *ngIf="password.errors!['required']">Password is required</h6>
+                        </div>
+
                         <input type="submit" value="Sign in">
                 </form>
                 <p>Not registered yet? <a [routerLink]="['/register']">Create an Account</a></p>

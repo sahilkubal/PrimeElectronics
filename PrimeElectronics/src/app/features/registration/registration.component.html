@@ -14,13 +14,27 @@
                     <img src="/assets/images/google.png" alt="">
                     <a href="#">Sign up with Google</a>
                 </div>
-                <form action="">
+                <form [formGroup]="RegistrationForm" (ngSubmit)="register()">
                         <label for="email">Email</label>
-                        <input type="email" placeholder="mail@website.com">
+                        <input type="email" name="email" placeholder="mail@website.com" formControlName="email">
+                        <div class="text-danger" *ngIf="email.dirty && email.invalid">
+                            <h6 *ngIf="email.errors!['required']">Email address is required</h6>
+                            <h6 *ngIf="email.errors!['email']">Invalid email! e.g. sahilkubal@mail.com</h6>
+                        </div>
+
                         <label for="phone">Phone</label>
-                        <input type="tel" placeholder="9328291282">
+                        <input type="tel" name="phone" placeholder="9328291282" formControlName="phone">
+                        <div class="text-danger" *ngIf="phone.dirty && phone.invalid">
+                            <h6 *ngIf="phone.errors!['required']">Phone number is required</h6>
+                            <!-- <h6 *ngIf="phone.errors!['pattern']">Invalid phone number e.g. 7452323454</h6> -->
+                        </div>
+
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="password">
+                        <input type="password" name="password" id="password" placeholder="password" formControlName="password">
+                        <div class="text-danger" *ngIf="password.dirty && password.invalid">
+                            <h6 *ngIf="password.errors!['required']">Password is required</h6>
+                        </div>
+
                         <input type="submit" value="Sign up">
                 </form>
                 <p>Already have an account? <a [routerLink]="['/login']">Sign in here</a></p>
